@@ -28,6 +28,7 @@ wersja_prog = '0.10'
 # FIXME Wgrano wyświetlanie błędu autoryzacji której nie było w wersji 0.7
 #      Wersja 0.9 Poprawiono nazwy assetow, brak spacji przed/za konwersja polskich znakow
 #      Wersja 0.10 dodano kolor dla błędnych assetów.
+# TEST LINIJKA SPRWADZENIE GIT
 
 
 
@@ -103,7 +104,7 @@ def createAsset(step_folder, assetid, obj_type, date, document_type, certyficate
                         headers=headers,
                         verify=False)
 
-
+# GIT TEST
 def updateAsset(assetid, files, username, password):
     url_update = f"https://steppimprod001.ku.k-netti.com/restapiv2/assets/{assetid}/content?fileName=unknown&context=pl-PL&workspace=Main"
     headers = {'Content-Type': 'application/octet-stream', 'accept': '*/*'}
@@ -152,7 +153,7 @@ def get_file_local():
     global filepath_local
     filepath_local = askdirectory()
 
-
+#GIT TEST
 def start():
     submitForm(filepath_local)
 
