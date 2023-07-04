@@ -67,7 +67,7 @@ def createAsset(step_folder, assetid, obj_type, date, document_type, certyficate
     if pandas.isna(certyficate_type):
         certyficate_type = ""
 
-    url = f"https://steppimprod001.ku.k-netti.com/restapiv2/assets/{assetid}?allow-overwrite=false&context=pl-PL&workspace=Main"
+    url = f"https:///restapiv2/assets/{assetid}?allow-overwrite=false&context=pl-PL&workspace=Main"
     headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
     dane = {
         "name": str(assetid),
@@ -106,7 +106,7 @@ def createAsset(step_folder, assetid, obj_type, date, document_type, certyficate
 
 # GIT TEST
 def updateAsset(assetid, files, username, password):
-    url_update = f"https://steppimprod001.ku.k-netti.com/restapiv2/assets/{assetid}/content?fileName=unknown&context=pl-PL&workspace=Main"
+    url_update = f"https://restapiv2/assets/{assetid}/content?fileName=unknown&context=pl-PL&workspace=Main"
     headers = {'Content-Type': 'application/octet-stream', 'accept': '*/*'}
     return requests.put(url_update,
                         auth=HTTPBasicAuth(username, password),
@@ -117,7 +117,7 @@ def updateAsset(assetid, files, username, password):
 
 def approveAsset(assetid, username, password):
     headers = {'accept': 'application/json'}
-    url = f"https://steppimprod001.ku.k-netti.com/restapiv2/assets/{assetid}/approve?context=pl-PL&workspace=Main"
+    url = f"https://restapiv2/assets/{assetid}/approve?context=pl-PL&workspace=Main"
     return requests.post(url,
                          auth=HTTPBasicAuth(username, password),
                          headers=headers,
@@ -127,7 +127,7 @@ def approveAsset(assetid, username, password):
 def linkAsset(pimid, username, password, id_reference, assetid):
     data = '{}'
     headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
-    url = f"https://steppimprod001.ku.k-netti.com/restapiv2/products/{pimid}/references/{id_reference}/{assetid}?allow-overwrite=true&context=pl-PL&workspace=Main"
+    url = f"https://restapiv2/products/{pimid}/references/{id_reference}/{assetid}?allow-overwrite=true&context=pl-PL&workspace=Main"
     return requests.put(url,
                         auth=HTTPBasicAuth(username, password),
                         data=data,
@@ -136,7 +136,7 @@ def linkAsset(pimid, username, password, id_reference, assetid):
 
 
 def approveProduct(pimid, username, password):
-    url = f"https://steppimprod001.ku.k-netti.com/restapiv2/products/{pimid}/approve?context=pl-PL&workspace=Main"
+    url = f"https://restapiv2/products/{pimid}/approve?context=pl-PL&workspace=Main"
     return requests.post(url,
                          auth=HTTPBasicAuth(username, password),
                          verify=False)
